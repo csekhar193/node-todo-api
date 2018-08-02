@@ -1,4 +1,5 @@
-const MongoClient = require('mongodb').MongoClient;
+// const MongoClient = require('mongodb').MongoClient;
+const {MongoClient, ObjectID} = require('mongodb');
 
 MongoClient.connect('mongodb://localhost:27017/',
 { useNewUrlParser: true } ,(err, db) => {
@@ -22,17 +23,17 @@ MongoClient.connect('mongodb://localhost:27017/',
 	// 	});
 
 
-	db1.collection('Users')
-		.insertOne({
-			name : 'Chandra Sekhar',
-			age : 24,
-			location : 'visakhapatnam'
-		}, (err, result) => {
-			if(err) {
-				return console.log('Unable to insert user.');
-			}
-			console.log(JSON.stringify(result.ops, undefined, 2));
-		});
+	// db1.collection('Users')
+	// 	.insertOne({
+	// 		name : 'Chandu',
+	// 		age : 24,
+	// 		location : 'visakhapatnam'
+	// 	}, (err, result) => {
+	// 		if(err) {
+	// 			return console.log('Unable to insert user.');
+	// 		}
+	// 		console.log(JSON.stringify(result.ops[0]._id.getTimestamp(), undefined, 2));
+	// 	});
 
 	db.close();
 });
